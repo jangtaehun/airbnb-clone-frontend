@@ -1,22 +1,15 @@
-import { Box, Button, HStack } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Outlet } from "react-router-dom";
-import { FaCat } from "react-icons/fa";
+import Header from "./Header";
+
 
 export default function Root() {
     return (
     <Box>
-        <HStack justifyContent={"space-between"} py={5} px={10} borderBottomWidth={"1px"}>
-            <Box color={"red.300"}>
-                <FaCat size={"48px"}/>
-            </Box>
-
-            <HStack spacing={2}>
-                <Button bg={"red.300"}>Log in</Button>
-                <Button colorScheme="red">Sign up</Button>
-            </HStack>
-
-        </HStack>
+        <Header />
         <Outlet />
+        <ReactQueryDevtools />
     </Box>
     );
 }
