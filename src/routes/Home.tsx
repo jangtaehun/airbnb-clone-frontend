@@ -6,21 +6,21 @@ import { getRooms } from "../api";
 import { IRoomList } from "../types";
 
 
-interface IPhoto {
-    pk: string;
-    file: string;
-    description: string;
-}
-interface IRoom {
-    pk: number;
-    name: string;
-    country: string;
-    city: string;
-    price: number;
-    rating: number;
-    is_owner:boolean;
-    photos: IPhoto[];
-}
+// interface IPhoto {
+//     pk: string;
+//     file: string;
+//     description: string;
+// }
+// interface IRoom {
+//     pk: number;
+//     name: string;
+//     country: string;
+//     city: string;
+//     price: number;
+//     rating: number;
+//     is_owner:boolean;
+//     photos: IPhoto[];
+// }
 
 export default function Home() {
     const {isLoading, data} = useQuery<IRoomList[]>({queryKey:["rooms"], queryFn: getRooms});
