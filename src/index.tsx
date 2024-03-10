@@ -9,6 +9,8 @@ import theme from './theme';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const client = new QueryClient();
+// fetch한 모든 query가 들어 있다. 원하는 어떤 query든 접근할 수 있다.
+// ex) 수동으로 room을 다시 fetch하고 싶으면, queryClient.refetchQueries({queryKey:["rooms"]});를 적으면 된다.
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
