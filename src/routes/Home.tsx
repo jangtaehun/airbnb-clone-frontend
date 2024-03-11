@@ -1,5 +1,6 @@
-import {Grid} from "@chakra-ui/react";
+import {Grid, useEditable} from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
+import { useEffect } from "react";
 import ListSkeleton from "../components/ListSkeleton";
 import List from "../components/List";
 import { getRooms } from "../api";

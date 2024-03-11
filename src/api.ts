@@ -23,8 +23,8 @@ export const getRoomReviews = ({queryKey}: QueryFunctionContext) => {
 }
 
 // 사용자 정보 가져오기 -> login
-export const getMe = () => 
-    instance.get("users/me").then((response) => response.data);
+export const getMe = () =>
+  instance.get(`users/me`).then((response) => response.data);
 
 // logout
 export const logOut = () =>
@@ -33,3 +33,19 @@ export const logOut = () =>
             "X-CSRFToken": Cookie.get("csrftoken") || "",
         },
     }).then((response) => response.data);
+
+// git 로그인
+export const githubLogIn = (code:string) =>
+    instance.post(
+        'users/github',  // python에서 views 만들고 url 추가
+        {code}, 
+        {headers: {"X-CSRFToken": Cookie.get("csrftoken") || ""}}
+        ).then((response)=>response.status);
+
+// kakao 로그인
+export const kakaoLogIn = (code:string) => 
+    instance.post(
+        'users/kakao',  // python에서 views 만들고 url 추가
+        {code}, 
+        {headers: {"X-CSRFToken": Cookie.get("csrftoken") || ""}}
+        ).then((response)=>response.status);
