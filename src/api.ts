@@ -42,11 +42,6 @@ export const githubLogIn = (code:string) =>
         {headers: {"X-CSRFToken": Cookie.get("csrftoken") || ""}}
         ).then((response)=>response.status);
 
-// export interface IkakaoVariables {
-//     username:string
-//     code:string
-// }
-
 // kakao 로그인
 export const kakaoLogIn = (code:string) => 
     instance.post(
