@@ -42,6 +42,11 @@ export const githubLogIn = (code:string) =>
         {headers: {"X-CSRFToken": Cookie.get("csrftoken") || ""}}
         ).then((response)=>response.status);
 
+// export interface IkakaoVariables {
+//     username:string
+//     code:string
+// }
+
 // kakao 로그인
 export const kakaoLogIn = (code:string) => 
     instance.post(
@@ -49,3 +54,24 @@ export const kakaoLogIn = (code:string) =>
         {code}, 
         {headers: {"X-CSRFToken": Cookie.get("csrftoken") || ""}}
         ).then((response)=>response.status);
+
+
+// 기본 로그인
+export interface IUsernameLoginVariables {
+    username:string
+    password:string
+}
+export interface IUsernameLoginSuccess {
+    ok:string
+}
+export interface IUsernameLoginError {
+    error:string
+}
+
+// kakao 로그인
+export const usernameLogIn = ({username, password}:IUsernameLoginVariables) => 
+    instance.post(
+        'users/log-in',  // python에서 views 만들고 url 추가
+        {username, password}, 
+        {headers: {"X-CSRFToken": Cookie.get("csrftoken") || ""}}
+        ).then((response)=>response.data);
