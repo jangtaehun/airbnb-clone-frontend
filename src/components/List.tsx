@@ -20,7 +20,7 @@ export default function List({pk, imageUrl, name, rating, country, city, price}:
 
                     <Box position={"relative"} overflow={"hidden"} mb={3} rounded={"2xl"}>
                         <Image minH="280" src={imageUrl} />
-                        <Button variant={"unstyled"} position={"absolute"} top={0} right={0} color={"white"}><FaRegHeart size={20} /></Button>
+                        <Button variant={"unstyled"} position={"absolute"} top={0} right={0} color={"white"} _hover={{color:"red.500"}}><FaRegHeart size={20} /></Button>
                     </Box>
 
                     <Box>
