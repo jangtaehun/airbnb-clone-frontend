@@ -17,10 +17,10 @@ const root = ReactDOM.createRoot(
 );
 root.render(
     <QueryClientProvider client={client}>
-      <ChakraProvider theme={theme}>
-        <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-        <RouterProvider router={router}/>
-      </ChakraProvider>
-    </QueryClientProvider>
+    <ChakraProvider theme={theme}>
+      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+      <RouterProvider router={router} />
+    </ChakraProvider>
+  </QueryClientProvider>
 );
 

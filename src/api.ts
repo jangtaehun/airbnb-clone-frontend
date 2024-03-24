@@ -63,10 +63,55 @@ export interface IUsernameLoginError {
     error:string
 }
 
-// kakao 로그인
 export const usernameLogIn = ({username, password}:IUsernameLoginVariables) => 
     instance.post(
         'users/log-in',  // python에서 views 만들고 url 추가
         {username, password}, 
         {headers: {"X-CSRFToken": Cookie.get("csrftoken") || ""}}
         ).then((response)=>response.data);
+
+export interface ISignUp {
+    name: string
+    username: string
+    email: string
+    password: string
+}
+// sign up
+export const UsersignUp = ({name, username, email, password}:ISignUp) =>
+    instance.post(
+        'users/sign-up',
+        {name, username, email, password},
+        {headers: {"X-CSRFToken": Cookie.get("csrftoken") || ""}}
+        ).then((response)=>response.data);
+
+// amenities 가져오기
+export const getAmenities = () =>
+    instance.get(`rooms/amenities`).then((response) => response.data);
+
+export const getCategory = () =>
+    instance.get(`categories`).then((response) => response.data);
+
+
+export interface IUploadRoomVariables {
+        name: string;
+        country: string;
+        city: string;
+        price: number;
+        rooms: number;
+        toilets: number;
+        description: string;
+        address: string;
+        pet_friendly: boolean;
+        kind: string;
+        amenities: number[];
+        category: number;
+    }
+      
+export const uploadRoom = (variables: IUploadRoomVariables) =>
+        instance
+        .post(`rooms/`, variables, {
+            headers: {
+            "X-CSRFToken": Cookie.get("csrftoken") || "",
+            },
+        })
+        .then((response) => response.data);
